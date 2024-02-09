@@ -5,6 +5,8 @@ let fireActive = false
 let money = 0
 let ore = 0
 
+let sword = 0
+let axe = 0
 
 
 // Functions
@@ -43,16 +45,41 @@ function buy(ore){
 /**
  * make
  */
-function make(){
+function make(sword){
+  if (ore = 2, wood = 1){
+    console.log("You have made a sword")
+  } else if (ore < 2, wood < 1){
+    console.log("You need more materials to make a sword")
+  }
+}
 
+function make(axe){
+  if (ore = 1, wood = 2){
+    console.log("You have made an axe")
+  } else if (ore < 1, wood < 2){
+    console.log("You need more materials to make an axe")
+  }
 }
 
 /**
  * sell
  */
-function sell(ore){
+function sell(sword){
+  if (sword = 1){
+    money = money + 5
+    console.log("You have sold a sword")
+  } else if (sword < 1){
+    console.log("You don't have a sword to sell")
+  }
+}
 
-
+function sell(axe){
+  if (axe = 1){
+    money = money + 4
+    console.log("You have sold a axe")
+  } else if (axe < 1){
+    console.log("You don't have an axe to sell")
+  }
 }
 
 
