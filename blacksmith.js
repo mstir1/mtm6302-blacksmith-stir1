@@ -71,7 +71,10 @@ function buy(item) {
   }
 }
 function make(weapon) {
-  if (weapon === "sword") {
+  if (blacksmith.fireActive === 0) {
+    console.log("You need to have the fire on")
+  } else {
+      if (weapon === "sword") {
     if (blacksmith.ore >= weapon_make_requirements.sword.ore && blacksmith.wood >= weapon_make_requirements.sword.wood) {
       blacksmith.ore -= weapon_make_requirements.sword.ore;
       blacksmith.wood -= weapon_make_requirements.sword.wood;
@@ -93,21 +96,24 @@ function make(weapon) {
     console.log("Invalid weapon type");
   }
 }
-
+}
 
 function sell(weapon) {
+  if (blacksmith.fireActive === 1) {
+    console.log("You cannot sell when fire is active");
+  } else {
   if (weapon === "sword") {
-    if (sword > 0) {
-      sword--;
-      money = money + 5
+    if (blacksmith.weapons.sword > 0) {
+      blacksmith.weapons.sword--;
+      blacksmith.gold += 5;
       console.log("You have sold a sword");
     } else {
       console.log("You don't have any swords to sell");
     }
   } else if (weapon === "axe") {
-    if (axe > 0) {
-      axe--;
-      money = money + 4
+    if (blacksmith.weapons.axe > 0) {
+      blacksmith.weapons.axe--;
+      blacksmith.gold += 4;
       console.log("You have sold an axe");
     } else {
       console.log("You don't have any axes to sell");
@@ -115,6 +121,7 @@ function sell(weapon) {
   } else {
     console.log("Invalid weapon type");
   }
+}
 }
 
 function inventory() {
